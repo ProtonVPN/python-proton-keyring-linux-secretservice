@@ -1,3 +1,3 @@
-from .secretservice import KeyringBackendLinuxSecretService
+from .secretservice_backend import KeyringBackendLinuxSecretService
 
 __all__ = ["KeyringBackendLinuxSecretService"]

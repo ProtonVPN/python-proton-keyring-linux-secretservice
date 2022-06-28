@@ -1,4 +1,4 @@
-from proton.keyring_linux.linuxkeyring import KeyringBackendLinuxSecretService
+from proton.keyring_linux.secretservice import KeyringBackendLinuxSecretService
 import pytest
 from unittest import mock
 from keyring.backends import SecretService
@@ -25,7 +25,7 @@ class TestInegrationSecretService:
         cleanup_env()
 
     @mock.patch(
-        "proton.keyring_linux.linuxkeyring.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
+        "proton.keyring_linux.core.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
         new_callable=mock.PropertyMock
     )
     def test_set_and_get_item_in_keyring(self, mock_keyring_service, cleanup_env):
@@ -36,7 +36,7 @@ class TestInegrationSecretService:
         assert k[TEST_KEY] == test_value
 
     @mock.patch(
-        "proton.keyring_linux.linuxkeyring.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
+        "proton.keyring_linux.core.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
         new_callable=mock.PropertyMock
     )
     def test_set_and_del_item_in_keyring(self, mock_keyring_service, cleanup_env):
