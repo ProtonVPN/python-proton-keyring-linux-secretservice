@@ -1,5 +1,10 @@
-from proton.keyring_linux.secretservice import KeyringBackendLinuxSecretService
 import pytest
+import os
+
+if not os.environ.get("TEST_LEVEL") == "integration":
+    pytest.skip("skipping integration tests", allow_module_level=True)
+
+from proton.keyring_linux.secretservice import KeyringBackendLinuxSecretService
 from unittest import mock
 from keyring.backends import SecretService
 
