@@ -17,9 +17,12 @@ Source0: %{unmangled_name}-%{version}.tar.gz
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{unmangled_name}-%{version}-%{release}-buildroot
 
-BuildRequires: python3-proton-keyring-linux
+BuildRequires: gnome-keyring
 BuildRequires: python3-setuptools
+BuildRequires: python3-proton-keyring-linux
+Requires: gnome-keyring
 Requires: python3-proton-keyring-linux
+Requires: gnome-keyring
 
 %{?python_disable_dependency_generator}
 

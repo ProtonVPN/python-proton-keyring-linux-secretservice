@@ -1,13 +1,15 @@
 import pytest
-import os
-
-if not os.environ.get("TEST_LEVEL") == "integration":
-    pytest.skip("skipping integration tests", allow_module_level=True)
-
+import subprocess
 from proton.keyring_linux.secretservice import KeyringBackendLinuxSecretService
 from unittest import mock
 from keyring.backends import SecretService
 
+# if not os.environ.get("TEST_LEVEL") == "integration":
+#     pytest.skip("skipping integration tests", allow_module_level=True)
+
+# Initialize keyring
+x = subprocess.Popen("gnome-keyring-daemon --unlock", stdin=subprocess.PIPE, shell=True)
+x.communicate(b"printf '\n'\n")
 
 TEST_SERVICE = "TestProton"
 TEST_KEY = "test-key"
