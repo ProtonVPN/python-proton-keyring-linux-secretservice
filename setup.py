@@ -18,7 +18,7 @@ setup(
     extras_require={
         "development": ["pytest", "pytest-cov"]
     },
-    packages=find_namespace_packages(include=['proton.keyring_linux/secretservice/*']),
+    packages=find_namespace_packages(include=['proton.keyring_linux.secretservice']),
     include_package_data=True,
     license="GPLv3",
     platforms="OS Independent",

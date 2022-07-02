@@ -1,8 +1,15 @@
-from proton.keyring_linux.linuxkeyring import KeyringBackendLinuxSecretService
 import pytest
+import subprocess
+from proton.keyring_linux.secretservice import KeyringBackendLinuxSecretService
 from unittest import mock
 from keyring.backends import SecretService
 
+# if not os.environ.get("TEST_LEVEL") == "integration":
+#     pytest.skip("skipping integration tests", allow_module_level=True)
+
+# Initialize keyring
+x = subprocess.Popen("gnome-keyring-daemon --unlock", stdin=subprocess.PIPE, shell=True)
+x.communicate(b"printf '\n'\n")
 
 TEST_SERVICE = "TestProton"
 TEST_KEY = "test-key"
@@ -25,7 +32,7 @@ class TestInegrationSecretService:
         cleanup_env()
 
     @mock.patch(
-        "proton.keyring_linux.linuxkeyring.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
+        "proton.keyring_linux.core.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
         new_callable=mock.PropertyMock
     )
     def test_set_and_get_item_in_keyring(self, mock_keyring_service, cleanup_env):
@@ -36,7 +43,7 @@ class TestInegrationSecretService:
         assert k[TEST_KEY] == test_value
 
     @mock.patch(
-        "proton.keyring_linux.linuxkeyring.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
+        "proton.keyring_linux.core.KeyringBackendLinux._KeyringBackendLinux__keyring_service",
         new_callable=mock.PropertyMock
     )
     def test_set_and_del_item_in_keyring(self, mock_keyring_service, cleanup_env):
