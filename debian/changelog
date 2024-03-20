@@ -1,3 +1,10 @@
+proton-keyring-linux-secretservice (0.0.2) unstable; urgency=medium
+
+  * Ensure data is properly parsed when it is fetched without a keyring password due to a bug with gnome-keyring:
+  * https://discourse.gnome.org/t/possible-bug-or-feature-storing-getting-data-keyring-protected-vs-unprotected-keyring/20312
+
+ -- Alexandru Cheltuitor <alexandru.cheltuitor@proton.ch>  Wed, 20 Mar 2024 16:00:00 +0100
+
 proton-keyring-linux-secretservice (0.0.1) UNRELEASED; urgency=medium
 
   * First release
