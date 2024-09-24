@@ -4,17 +4,12 @@ from setuptools import setup, find_namespace_packages
 
 setup(
     name="proton-keyring-linux-secretservice",
-    version="0.0.2",
+    version="0.1.0",
     description="Proton AG keyring secretservice implementation for linux",
     author="Proton AG",
     author_email="contact@protonmail.com",
     url="https://github.com/ProtonVPN/python-proton-keyring-linux-secretservice",
     install_requires=["proton-keyring-linux", "secretstorage"],
-    entry_points={
-        "proton_loader_keyring": [
-            "secret_service = proton.keyring_linux.secretservice:KeyringBackendLinuxSecretService"
-        ]
-    },
     extras_require={
         "development": ["pytest", "pytest-coverage", "pylint", "flake8"]
     },

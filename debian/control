@@ -8,5 +8,5 @@ X-Python3-Version: >= 3.8
 
 Package: python3-proton-keyring-linux-secretservice
 Architecture: all
-Depends: ${python3:Depends}, ${misc:Depends}, python3-proton-keyring-linux, python3-secretstorage, gnome-keyring
+Depends: ${python3:Depends}, ${misc:Depends}, python3-proton-keyring-linux (>=0.1.0), python3-secretstorage, gnome-keyring
 Description: Python3 Proton Keyring backend for secret service

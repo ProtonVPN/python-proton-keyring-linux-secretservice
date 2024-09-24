@@ -1,3 +1,9 @@
+proton-keyring-linux-secretservice (0.1.0) unstable; urgency=medium
+
+  * Drop entry point since it's being merged into proton-keyring-linux package.
+
+ -- Alexandru Cheltuitor <alexandru.cheltuitor@proton.ch>  Tue, 24 Sep 2024 10:00:00 +0000
+
 proton-keyring-linux-secretservice (0.0.2) unstable; urgency=medium
 
   * Ensure data is properly parsed when it is fetched without a keyring password due to a bug with gnome-keyring:
